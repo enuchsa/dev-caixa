@@ -15,4 +15,8 @@ public class Type {
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String name;
+
+    public Type(TypeRequestDTO typeRequestDTO) {
+        this.name = typeRequestDTO.name();
+    }
 }
