@@ -5,5 +5,5 @@ import com.gatitus.devcaixa.domain.product.Product;
 import java.util.Date;
 import java.util.List;
 
-public record SaleRequestDTO(String code, List<Product> products, Float total, Date date) {
+public record SaleRequestDTO(String code, List<SaleDetail> saleDetails) {
 }

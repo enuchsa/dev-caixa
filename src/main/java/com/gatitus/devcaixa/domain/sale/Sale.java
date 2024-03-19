@@ -1,6 +1,5 @@
 package com.gatitus.devcaixa.domain.sale;
 
-import com.gatitus.devcaixa.domain.product.Product;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,15 +18,13 @@ public class Sale {
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String code;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Product> products;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<SaleDetail> saleDetails;
     private Float total;
     private Date date;
 
     public Sale(SaleRequestDTO saleRequestDTO) {
         this.code = saleRequestDTO.code();
-        this.products = saleRequestDTO.products();
-        this.total = saleRequestDTO.total();
-        this.date = saleRequestDTO.date();
+        this.saleDetails = saleRequestDTO.saleDetails();
     }
 }
