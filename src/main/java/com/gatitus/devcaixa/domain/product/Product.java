@@ -21,7 +21,8 @@ public class Product {
     private Float price;
     private Float buyPrice;
     private Integer amount;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "type_id")
     private Type type;
 
     public Product (ProductRequestDTO productRequestDTO) {
